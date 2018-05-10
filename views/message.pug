@@ -1,0 +1,4 @@
+.messages
+  each type in Objet.keys(messages)
+    each message in messages[type]
+      div(class="alert alert-"+type) #{message}
