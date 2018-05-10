@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title BabyTemp
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    div
+      nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+        .container
+          a.navbar-brand(href='#') BabyTemp
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarsExampleDefault.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li
+                a.nav-link(href='/') Temperaturas
+              if user
+                li
+                  a.nav-link(href='/temperatures/add') Adicionar temperatura
+            ul.navbar-nav.navbar-right
+              if user
+                li
+                  a.nav-link(href='/users/logout') #{user.name} | Logout
+              else
+                li
+                  a.nav-link(href='/users/register') Registar
+                li
+                  a.nav-link(href='/users/login') Login
+    .container
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+      block content
+      br
+      hr
+      footer
+        p Copyright &copy; 2018
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/js/main.js')
+    
