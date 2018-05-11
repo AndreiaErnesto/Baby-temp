@@ -13,6 +13,14 @@ let temperatureSchema = mongoose.Schema({
   parente:{
     type: String,
     require: true
+  },
+  data:{
+    type: String,
+    require: true
+  },
+  hora:{
+    type: String,
+    require: true
   }
 });
 
